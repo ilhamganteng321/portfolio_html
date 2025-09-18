@@ -172,10 +172,11 @@
                         </div>
                     </div>
                     
-                    <button id="download-cert" class="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all transform hover:scale-105">
-                        <i class="fas fa-download mr-2"></i>
-                        Download Certificate
-                    </button>
+                    <a href="Ilham Arip cv.pdf" download 
+                    class="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all transform hover:scale-105">
+                    <i class="fas fa-download mr-2"></i>
+                    Download CV
+                    </a>
                 </div>
             </div>
         </div>
@@ -772,50 +773,15 @@
         });
         
         // Certificate download
-        document.getElementById('download-cert').addEventListener('click', function() {
-            // Create a sample certificate content
-            const certificateContent = `
-                CERTIFICATE OF ACHIEVEMENT
-                
-                This is to certify that
-                
-                ILHAM ARIP
-                
-                has successfully completed the portfolio showcase
-                and demonstrated proficiency in:
-                
-                • Mobile Development (Flutter)
-                • Web Development (Laravel, Vue.js)
-                • Backend Systems (gRPC, APIs)
-                • Database Management
-                • Modern Programming Practices
-                
-                Date: ${new Date().toLocaleDateString()}
-                
-                Congratulations on your achievements!
-            `;
-            
-            // Create and download the certificate
-            const blob = new Blob([certificateContent], { type: 'text/plain' });
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'Ilham_Arip_Certificate.txt';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            window.URL.revokeObjectURL(url);
-            
-            // Show success message
-            this.innerHTML = '<i class="fas fa-check mr-2"></i>Downloaded!';
-            this.classList.add('bg-green-500');
-            
-            setTimeout(() => {
-                this.innerHTML = '<i class="fas fa-download mr-2"></i>Download Certificate';
-                this.classList.remove('bg-green-500');
-            }, 2000);
-        });
-        
+        // document.getElementById('download-cert').addEventListener('click', function() {
+        //         const a = document.createElement('a');
+        //         a.href = './Ilham Arip cv.pdf'; // path ke file PDF
+        //         a.download = 'Ilham_Arip_CV.pdf';
+        //         document.body.appendChild(a);
+        //         a.click();
+        //         document.body.removeChild(a);
+        //     });
+                    
         // Add scroll effect to navigation
         window.addEventListener('scroll', () => {
             const nav = document.querySelector('nav');
