@@ -95,9 +95,9 @@
                     <a href="#experience" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Experience</a>
                     <a href="#contact" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Contact</a>
                 </div>
-                <button id="theme-toggle" class="p-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300">
-                    <i class="fas fa-moon dark:hidden"></i>
-                    <i class="fas fa-sun hidden dark:inline"></i>
+                <button id="theme-toggle" class="p-3 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300">
+                    <i id="theme-icon-light" class="fas fa-moon"></i>
+                    <i id="theme-icon-dark" class="fas fa-sun hidden"></i>
                 </button>
             </div>
         </div>
@@ -131,7 +131,7 @@
         <div class="absolute bottom-20 right-10 w-32 h-32 bg-white/5 rounded-full animate-pulse" style="animation-delay: 1s;"></div>
         <div class="absolute top-1/2 left-20 w-16 h-16 bg-white/10 rounded-full animate-pulse" style="animation-delay: 2s;"></div>
     </section>
-
+    
     <!-- About Section -->
     <section id="about" class="py-20 bg-white dark:bg-gray-900">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -662,18 +662,33 @@
     </footer>
 
     <script>
-        // Theme Toggle
-        const themeToggle = document.getElementById('theme-toggle');
+         const themeToggle = document.getElementById('theme-toggle');
+        const themeIconLight = document.getElementById('theme-icon-light');
+        const themeIconDark = document.getElementById('theme-icon-dark');
         const html = document.documentElement;
+        
+        // Function to update theme icons
+        function updateThemeIcons(isDark) {
+            if (isDark) {
+                themeIconLight.classList.add('hidden');
+                themeIconDark.classList.remove('hidden');
+            } else {
+                themeIconLight.classList.remove('hidden');
+                themeIconDark.classList.add('hidden');
+            }
+        }
         
         // Check for saved theme preference or default to light mode
         const currentTheme = localStorage.getItem('theme') || 'light';
-        html.classList.toggle('dark', currentTheme === 'dark');
+        const isDarkMode = currentTheme === 'dark';
+        html.classList.toggle('dark', isDarkMode);
+        updateThemeIcons(isDarkMode);
         
         themeToggle.addEventListener('click', () => {
-            html.classList.toggle('dark');
-            const newTheme = html.classList.contains('dark') ? 'dark' : 'light';
-            localStorage.setItem('theme', newTheme);
+            const newIsDark = !html.classList.contains('dark');
+            html.classList.toggle('dark', newIsDark);
+            updateThemeIcons(newIsDark);
+            localStorage.setItem('theme', newIsDark ? 'dark' : 'light');
         });
         
         // Smooth scrolling
