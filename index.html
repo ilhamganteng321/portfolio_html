@@ -76,33 +76,65 @@
             background: rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
+        .nav-link {
+            @apply text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors;
+        }
     </style>
 </head>
 <body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
     <!-- Navigation -->
     <nav class="fixed top-0 w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-md z-50 border-b border-gray-200 dark:border-gray-700">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center py-4">
-                <div class="text-2xl font-bold text-gray-900 dark:text-white">
-                    Ilham Arip
-                </div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#home" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Home</a>
-                    <a href="#about" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">About</a>
-                    <a href="#skills" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Skills</a>
-                    <a href="#projects" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Projects</a>
-                    <a href="#education" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Education</a>
-                    <a href="#experience" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Experience</a>
-                    <a href="#contact" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Contact</a>
-                </div>
-                <button id="theme-toggle" class="p-3 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300">
-                    <i id="theme-icon-light" class="fas fa-moon"></i>
-                    <i id="theme-icon-dark" class="fas fa-sun hidden"></i>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center py-4">
+            <!-- Logo -->
+            <div class="text-2xl font-bold text-gray-900 dark:text-white">
+                Ilham Arip
+            </div>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#home" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">Home</a>
+                <a href="#about" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">About</a>
+                <a href="#skills" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">Skills</a>
+                <a href="#projects" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">Projects</a>
+                <a href="#education" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">Education</a>
+                <a href="#experience" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">Experience</a>
+                <a href="#contact" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">Contact</a>
+                
+                <!-- Desktop Theme Toggle -->
+                <button id="theme-toggle" class="p-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
+                    <i id="theme-icon-light" class="fas fa-moon text-sm"></i>
+                    <i id="theme-icon-dark" class="fas fa-sun text-sm hidden"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Controls -->
+            <div class="flex items-center gap-2 md:hidden">
+                <!-- Mobile Theme Toggle -->
+                <button id="theme-toggle-mobile" class="p-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
+                    <i id="theme-icon-light-mobile" class="fas fa-moon text-sm"></i>
+                    <i id="theme-icon-dark-mobile" class="fas fa-sun text-sm hidden"></i>
+                </button>
+
+                <!-- Mobile Menu Button -->
+                <button id="menu-toggle" class="p-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
+                    <i class="fas fa-bars text-lg"></i>
                 </button>
             </div>
         </div>
-    </nav>
 
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden flex-col space-y-3 pb-4 border-t border-gray-200 dark:border-gray-700 pt-4">
+            <a href="#home" class="nav-link block py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">Home</a>
+            <a href="#about" class="nav-link block py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">About</a>
+            <a href="#skills" class="nav-link block py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">Skills</a>
+            <a href="#projects" class="nav-link block py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">Projects</a>
+            <a href="#education" class="nav-link block py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">Education</a>
+            <a href="#experience" class="nav-link block py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">Experience</a>
+            <a href="#contact" class="nav-link block py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">Contact</a>
+        </div>
+    </div>
+</nav>
     <!-- Hero Section -->
     <section id="home" class=" min-h-screen gradient-bg flex items-center justify-center relative overflow-hidden">
         <div class="absolute inset-0 bg-black/20"></div>
@@ -433,6 +465,35 @@
                     </div>
                     </div>
 
+                    <div class="project-card card-hover rounded-xl p-6 fade-in">
+                <div class="w-12 h-12 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-lg flex items-center justify-center mb-4">
+                    <i class="fas fa-pen-nib text-white text-xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                    Note app 
+                </h3>
+                <p class="text-gray-600 dark:text-gray-300 mb-4">
+                    A modern note-taking web app built with React js that integrates an AI API to 
+                    improve, rewrite, or generate notes intelligently. Users can write freely, and the AI helps enhance 
+                    clarity, grammar, and creativity. Designed with Tailwind CSS for a minimal and responsive UI.
+                </p>
+                <div class="flex space-x-2 mb-4">
+                    <span class="text-xs bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 px-2 py-1 rounded">React </span>
+                    <span class="text-xs bg-emerald-100 dark:bg-emerald-900 text-emerald-800 dark:text-emerald-200 px-2 py-1 rounded">Rest Api</span>
+                    <span class="text-xs bg-cyan-100 dark:bg-cyan-900 text-cyan-800 dark:text-cyan-200 px-2 py-1 rounded">Tailwind CSS</span>
+                    <span class="text-xs bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-2 py-1 rounded">AI Integration</span>
+                </div>
+                <div class="flex space-x-3">
+                    <a href="https://smartnotes.ngacir.my.id/" class="flex-1 bg-gradient-to-r from-blue-600 to-cyan-500 text-white py-2 px-4 rounded-lg text-sm font-medium hover:shadow-lg transition-all">
+                    View Details
+                    </a>
+                    <a href="https://github.com/ilhamganteng321/smart-notes-ai" class="px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg text-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition-all">
+                    <i class="fab fa-github"></i>
+                    </a>
+                </div>
+                </div>
+
+
 
                 <div class="project-card card-hover rounded-xl p-6 fade-in">
                     <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mb-4">
@@ -751,6 +812,19 @@
         const themeIconLight = document.getElementById('theme-icon-light');
         const themeIconDark = document.getElementById('theme-icon-dark');
         const html = document.documentElement;
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Tutup menu setelah klik link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            });
+        });
         
         // Function to update theme icons
         function updateThemeIcons(isDark) {
@@ -855,22 +929,22 @@
             observer.observe(el);
         });
         
-        // Contact form submission
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
+        // // Contact form submission
+        // document.getElementById('contact-form').addEventListener('submit', function(e) {
+        //     e.preventDefault();
             
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
+        //     const name = document.getElementById('name').value;
+        //     const email = document.getElementById('email').value;
+        //     const message = document.getElementById('message').value;
             
-            if (name && email && message) {
-                // Simulate form submission
-                alert('Thank you for your message! I\'ll get back to you soon.');
-                this.reset();
-            } else {
-                alert('Please fill in all fields.');
-            }
-        });
+        //     if (name && email && message) {
+        //         // Simulate form submission
+        //         alert('Thank you for your message! I\'ll get back to you soon.');
+        //         this.reset();
+        //     } else {
+        //         alert('Please fill in all fields.');
+        //     }
+        // });
         
         // Certificate download
         // document.getElementById('download-cert').addEventListener('click', function() {
