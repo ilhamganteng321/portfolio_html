@@ -1,823 +1,1074 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ilham Arip - Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        
-        * {
-            font-family: 'Inter', sans-serif;
-        }    
-        .gradient-bg {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-        
-        .card-hover {
-            transition: all 0.3s ease;
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-        
-        .skill-tag {
-            transition: all 0.3s ease;
-        }
-        
-        .skill-tag:hover {
-            transform: scale(1.05);
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-        
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.8s ease forwards;
-        }
-        
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .typing-animation {
-            border-right: 2px solid #667eea;
-            animation: blink 1s infinite;
-        }
-        
-        @keyframes blink {
-            0%, 50% { border-color: transparent; }
-            51%, 100% { border-color: #667eea; }
-        }
-        
-        .dark .gradient-bg {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-        }
-        
-        .timeline-line {
-            background: linear-gradient(to bottom, #667eea, #764ba2);
-        }
-        
-        .project-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .dark .project-card {
-            background: rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .nav-link {
-            @apply text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ilham Arip - Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+    * {
+      font-family: "Inter", sans-serif;
+    }
+
+    .gradient-bg {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .card-hover {
+      transition: all 0.3s ease;
+    }
+
+    .card-hover:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .skill-tag {
+      transition: all 0.3s ease;
+    }
+
+    .skill-tag:hover {
+      transform: scale(1.05);
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .typing-animation {
+      border-right: 2px solid #667eea;
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+
+      0%,
+      50% {
+        border-color: transparent;
+      }
+
+      51%,
+      100% {
+        border-color: #667eea;
+      }
+    }
+
+    .dark .gradient-bg {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    }
+
+    .timeline-line {
+      background: linear-gradient(to bottom, #667eea, #764ba2);
+    }
+
+    .project-card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .dark .project-card {
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-link {
+      @apply text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors;
+    }
+  </style>
 </head>
+
 <body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-md z-50 border-b border-gray-200 dark:border-gray-700">
+  <!-- Navigation -->
+  <nav
+    class="fixed top-0 w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-md z-50 border-b border-gray-200 dark:border-gray-700">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center py-4">
-            <!-- Logo -->
-            <div class="text-2xl font-bold text-gray-900 dark:text-white">
-                Ilham Arip
-            </div>
-
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex space-x-8 items-center">
-                <a href="#home" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">Home</a>
-                <a href="#about" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">About</a>
-                <a href="#skills" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">Skills</a>
-                <a href="#projects" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">Projects</a>
-                <a href="#education" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">Education</a>
-                <a href="#experience" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">Experience</a>
-                <a href="#contact" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">Contact</a>
-                
-                <!-- Desktop Theme Toggle -->
-                <button id="theme-toggle" class="p-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
-                    <i id="theme-icon-light" class="fas fa-moon text-sm"></i>
-                    <i id="theme-icon-dark" class="fas fa-sun text-sm hidden"></i>
-                </button>
-            </div>
-
-            <!-- Mobile Controls -->
-            <div class="flex items-center gap-2 md:hidden">
-                <!-- Mobile Theme Toggle -->
-                <button id="theme-toggle-mobile" class="p-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
-                    <i id="theme-icon-light-mobile" class="fas fa-moon text-sm"></i>
-                    <i id="theme-icon-dark-mobile" class="fas fa-sun text-sm hidden"></i>
-                </button>
-
-                <!-- Mobile Menu Button -->
-                <button id="menu-toggle" class="p-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
-                    <i class="fas fa-bars text-lg"></i>
-                </button>
-            </div>
+      <div class="flex justify-between items-center py-4">
+        <!-- Logo -->
+        <div class="text-2xl font-bold text-gray-900 dark:text-white">
+          Ilham Arip
         </div>
 
-        <!-- Mobile Menu Dropdown -->
-        <div id="mobile-menu" class="hidden md:hidden flex-col space-y-3 pb-4 border-t border-gray-200 dark:border-gray-700 pt-4">
-            <a href="#home" class="nav-link block py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">Home</a>
-            <a href="#about" class="nav-link block py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">About</a>
-            <a href="#skills" class="nav-link block py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">Skills</a>
-            <a href="#projects" class="nav-link block py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">Projects</a>
-            <a href="#education" class="nav-link block py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">Education</a>
-            <a href="#experience" class="nav-link block py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">Experience</a>
-            <a href="#contact" class="nav-link block py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">Contact</a>
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex space-x-8 items-center">
+          <a href="#home"
+            class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">Home</a>
+          <a href="#about"
+            class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">About</a>
+          <a href="#skills"
+            class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">Skills</a>
+          <a href="#projects"
+            class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">Projects</a>
+          <a href="#education"
+            class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">Education</a>
+          <a href="#experience"
+            class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">Experience</a>
+          <a href="#contact"
+            class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">Contact</a>
+
+          <!-- Desktop Theme Toggle -->
+          <button id="theme-toggle"
+            class="p-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
+            <i id="theme-icon-light" class="fas fa-moon text-sm"></i>
+            <i id="theme-icon-dark" class="fas fa-sun text-sm hidden"></i>
+          </button>
         </div>
+
+        <!-- Mobile Controls -->
+        <div class="flex items-center gap-2 md:hidden">
+          <!-- Mobile Theme Toggle -->
+          <button id="theme-toggle-mobile"
+            class="p-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
+            <i id="theme-icon-light-mobile" class="fas fa-moon text-sm"></i>
+            <i id="theme-icon-dark-mobile" class="fas fa-sun text-sm hidden"></i>
+          </button>
+
+          <!-- Mobile Menu Button -->
+          <button id="menu-toggle"
+            class="p-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
+            <i class="fas fa-bars text-lg"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu Dropdown -->
+      <div id="mobile-menu"
+        class="hidden md:hidden flex-col space-y-3 pb-4 border-t border-gray-200 dark:border-gray-700 pt-4">
+        <a href="#home"
+          class="nav-link block py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">Home</a>
+        <a href="#about"
+          class="nav-link block py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">About</a>
+        <a href="#skills"
+          class="nav-link block py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">Skills</a>
+        <a href="#projects"
+          class="nav-link block py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">Projects</a>
+        <a href="#education"
+          class="nav-link block py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">Education</a>
+        <a href="#experience"
+          class="nav-link block py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">Experience</a>
+        <a href="#contact"
+          class="nav-link block py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">Contact</a>
+      </div>
     </div>
-</nav>
-    <!-- Hero Section -->
-    <section id="home" class=" min-h-screen gradient-bg flex items-center justify-center relative overflow-hidden">
-        <div class="absolute inset-0 bg-black/20"></div>
-        <div class="relative z-10 text-center text-white px-4 fade-in">
-            <h1 class="text-5xl md:text-7xl font-bold mb-4">
-                Ilham Arip
-            </h1>
-            <p class="text-xl md:text-2xl mb-6 typing-animation" id="typing-text">
-                Informatics Engineering Fresh Graduate & Programmer
-            </p>
-            <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto opacity-90">
-                Passionate about mobile and web development, creating innovative solutions with modern technologies
-            </p>
-            <div class="space-x-4">
-                <button onclick="scrollToSection('projects')" class="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-all transform hover:scale-105">
-                    View My Work
-                </button>
-                <button onclick="scrollToSection('contact')" class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition-all transform hover:scale-105">
-                    Contact Me
-                </button>
-            </div>
-        </div>
-        
-        <!-- Floating Elements -->
-        <div class="absolute top-20 left-10 w-20 h-20 bg-white/10 rounded-full animate-pulse"></div>
-        <div class="absolute bottom-20 right-10 w-32 h-32 bg-white/5 rounded-full animate-pulse" style="animation-delay: 1s;"></div>
-        <div class="absolute top-1/2 left-20 w-16 h-16 bg-white/10 rounded-full animate-pulse" style="animation-delay: 2s;"></div>
-    </section>
-    
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-white dark:bg-gray-900">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">About Me</h2>
-                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto"></div>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="fade-in">
-                    <div class="w-80 h-80 mx-auto bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
-                        <i class="fas fa-code text-8xl text-white"></i>
-                    </div>
-                </div>
-                
-                <div class="fade-in">
-                    <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
-                        Hello! I'm Ilham Arip
-                    </h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-                        I'm currently pursuing a D3 degree in Informatics Engineering at Universitas Logistik dan Bisnis Internasional. 
-                        My journey in programming has been driven by curiosity and a passion for creating meaningful digital solutions.
-                    </p>
-                    <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-                        I have hands-on experience in developing CRUD applications, AI-powered projects, gRPC client-server systems, 
-                        and educational chatbots. I'm particularly interested in modern frameworks and enjoy exploring new technologies 
-                        that can solve real-world problems.
-                    </p>
-                    
-                    <div class="grid grid-cols-2 gap-4 mb-6">
-                        <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
-                            <h4 class="font-semibold text-gray-900 dark:text-white mb-2">Education</h4>
-                            <p class="text-sm text-gray-600 dark:text-gray-300">D3 Informatics Engineering</p>
-                        </div>
-                        <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
-                            <h4 class="font-semibold text-gray-900 dark:text-white mb-2">Focus</h4>
-                            <p class="text-sm text-gray-600 dark:text-gray-300">Mobile & Web Development</p>
-                        </div>
-                    </div>
-                    
-                    <a href="Ilham Arip cv.pdf" download 
-                    class="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all transform hover:scale-105">
-                    <i class="fas fa-download mr-2"></i>
-                    Download CV
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+  </nav>
+  <!-- Hero Section -->
+  <section id="home"
+    class="min-h-screen gradient-bg flex flex-col md:flex-row items-center justify-center relative overflow-hidden">
+    <div class="absolute inset-0 bg-black/20"></div>
 
-    <!-- Skills Section -->
-    <section id="skills" class="py-20 bg-gray-50 dark:bg-gray-800">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Skills & Tools</h2>
-                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto"></div>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="fade-in">
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
-                        <i class="fas fa-mobile-alt mr-2 text-blue-500"></i>
-                        Mobile
-                    </h3>
-                    <div class="space-y-2">
-                        <span class="skill-tag inline-block bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm">Flutter</span>
-                        <span class="skill-tag inline-block bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm">Kotlin Native</span>
-                        <span class="skill-tag inline-block bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm">Firebase</span>
-                    </div>
-                </div>
-                
-                <div class="fade-in">
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
-                        <i class="fas fa-globe mr-2 text-green-500"></i>
-                        Web
-                    </h3>
-                    <div class="space-y-2">
-                        <span class="skill-tag inline-block bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm">React js</span>
-                        <span class="skill-tag inline-block bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm">Next js</span>
-                        <span class="skill-tag inline-block bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm">Laravel</span>
-                        <span class="skill-tag inline-block bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm">Vue.js</span>
-                        <span class="skill-tag inline-block bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm">Node.js</span>
-                        <span class="skill-tag inline-block bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm">CodeIgniter</span>
-                        <span class="skill-tag inline-block bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm">Next.js</span>
-                        <span class="skill-tag inline-block bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm">Html</span>
-                        <span class="skill-tag inline-block bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm">Css</span>
-                        <span class="skill-tag inline-block bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm">Astro</span>
-                    </div>
-                </div>
-                
-                <div class="fade-in">
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
-                        <i class="fas fa-server mr-2 text-purple-500"></i>
-                        Backend
-                    </h3>
-                    <div class="space-y-2">
-                        <span class="skill-tag inline-block bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm">Node js</span>
-                        <span class="skill-tag inline-block bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm">Firebase</span>
-                        <span class="skill-tag inline-block bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm">Flask API</span>
-                    </div>
-                </div>
-                
-                <div class="fade-in">
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
-                        <i class="fas fa-database mr-2 text-red-500"></i>
-                        Database & Others
-                    </h3>
-                    <div class="space-y-2">
-                        <span class="skill-tag inline-block bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm">SQLite</span>
-                        <span class="skill-tag inline-block bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm">PostgreSQL</span>
-                        <span class="skill-tag inline-block bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm">MySQL</span>
-                        <span class="skill-tag inline-block bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm">MongoDB</span>
-                        <span class="skill-tag inline-block bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm">Firestore</span>
-                        <span class="skill-tag inline-block bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm">Tailwind CSS</span>
-                        <span class="skill-tag inline-block bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm">GraphQL</span>
-                        <span class="skill-tag inline-block bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm">GitHub</span>
-                        <span class="skill-tag inline-block bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm">Visual Studio Code</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-white dark:bg-gray-900">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Featured Projects</h2>
-                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto"></div>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="project-card card-hover rounded-xl p-6 fade-in">
-                    <div class="w-12 h-12 bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-lg flex items-center justify-center mb-4">
-                        <i class="fas fa-wallet text-white text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Finance Tracker App</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">
-                        Personal finance tracker built with React, Tailwind CSS, and Firebase. 
-                        Helps users manage expenses, track budgets, and visualize spending.
-                    </p>
-                    <div class="flex space-x-2 mb-4">
-                        <span class="text-xs bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded">React</span>
-                        <span class="text-xs bg-pink-100 dark:bg-pink-900 text-pink-800 dark:text-pink-200 px-2 py-1 rounded">Tailwind CSS</span>
-                        <span class="text-xs bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 px-2 py-1 rounded">Firebase</span>
-                    </div>
-                    <div class="flex space-x-3">
-                        <!-- View Details ke website -->
-                        <a href="https://finance.ngacir.my.id" target="_blank" 
-                        class="flex-1 text-center bg-gradient-to-r from-blue-500 to-purple-600 text-white py-2 px-4 rounded-lg text-sm font-medium hover:shadow-lg transition-all">
-                            View Details
-                        </a>
-
-                        <!-- GitHub -->
-                        <a href="https://github.com/ilhamganteng321/finance_tracker" target="_blank" 
-                        class="px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg text-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition-all">
-                            <i class="fab fa-github"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="project-card card-hover rounded-xl p-6 fade-in">
-                    <div class="w-12 h-12 bg-gradient-to-r from-pink-500 to-pink-600 rounded-lg flex items-center justify-center mb-4">
-                        <i class="fas fa-blog text-white text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Personal Blog App</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">
-                        A modern blogging platform built with React, Tailwind CSS, and Firebase. 
-                        Supports creating, editing, and managing posts with real-time updates.
-                    </p>
-                    <div class="flex space-x-2 mb-4">
-                        <span class="text-xs bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded">React</span>
-                        <span class="text-xs bg-pink-100 dark:bg-pink-900 text-pink-800 dark:text-pink-200 px-2 py-1 rounded">Tailwind CSS</span>
-                        <span class="text-xs bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 px-2 py-1 rounded">Firebase</span>
-                    </div>
-                    <div class="flex space-x-3">
-                        <!-- View Details ke website -->
-                        <a href="https://blog.ngacir.my.id" target="_blank" 
-                        class="flex-1 text-center bg-gradient-to-r from-blue-500 to-purple-600 text-white py-2 px-4 rounded-lg text-sm font-medium hover:shadow-lg transition-all">
-                            View Details
-                        </a>
-
-                        <!-- GitHub -->
-                        <a href="https://github.com/ilhamganteng321/blog_app" target="_blank" 
-                        class="px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg text-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition-all">
-                            <i class="fab fa-github"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="project-card card-hover rounded-xl p-6 fade-in">
-                    <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-green-600 rounded-lg flex items-center justify-center mb-4">
-                        <i class="fas fa-trophy text-white text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Tournament Manager App</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">
-                        A web app for managing tournaments, built with React, Tailwind CSS, and Firebase. 
-                        Supports tournament creation, team management, match scheduling, and real-time standings.
-                    </p>
-                    <div class="flex space-x-2 mb-4">
-                        <span class="text-xs bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded">React</span>
-                        <span class="text-xs bg-pink-100 dark:bg-pink-900 text-pink-800 dark:text-pink-200 px-2 py-1 rounded">Tailwind CSS</span>
-                        <span class="text-xs bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 px-2 py-1 rounded">Firebase</span>
-                    </div>
-                    <div class="flex space-x-3">
-                        <!-- View Details ke website -->
-                        <a href="https://tour.ngacir.my.id" target="_blank" 
-                        class="flex-1 text-center bg-gradient-to-r from-blue-500 to-purple-600 text-white py-2 px-4 rounded-lg text-sm font-medium hover:shadow-lg transition-all">
-                            View Details
-                        </a>
-
-                        <!-- GitHub -->
-                        <a href="https://github.com/ilhamganteng321/tourneyku" target="_blank" 
-                        class="px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg text-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition-all">
-                            <i class="fab fa-github"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="project-card card-hover rounded-xl p-6 fade-in">
-                <div class="w-12 h-12 bg-gradient-to-r from-indigo-500 to-blue-600 rounded-lg flex items-center justify-center mb-4">
-                    <i class="fas fa-chart-line text-white text-xl"></i>
-                </div>
-                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">
-                    Product Analytics Dashboard
-                </h3>
-                <p class="text-gray-600 dark:text-gray-300 mb-4">
-                    A responsive analytics dashboard built with React and Tailwind CSS, 
-                    featuring interactive charts powered by Chart.js. The app dynamically 
-                    visualizes real-time product data fetched from online APIs for insightful performance tracking.
-                </p>
-                <div class="flex space-x-2 mb-4">
-                    <span class="text-xs bg-sky-100 dark:bg-sky-900 text-sky-800 dark:text-sky-200 px-2 py-1 rounded">React</span>
-                    <span class="text-xs bg-cyan-100 dark:bg-cyan-900 text-cyan-800 dark:text-cyan-200 px-2 py-1 rounded">Tailwind CSS</span>
-                    <span class="text-xs bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-2 py-1 rounded">Chart.js</span>
-                    <span class="text-xs bg-amber-100 dark:bg-amber-900 text-amber-800 dark:text-amber-200 px-2 py-1 rounded">REST API</span>
-                </div>
-                <div class="flex space-x-3">
-                    <a href="https://proana.ngacir.my.id/" class="flex-1 bg-gradient-to-r from-indigo-500 to-blue-600 text-white py-2 px-4 rounded-lg text-sm font-medium hover:shadow-lg transition-all">
-                    View Details
-                    </a>
-                    <a href="https://github.com/ilhamganteng321/product-analistyc" class="px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg text-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition-all">
-                    <i class="fab fa-github"></i>
-                    </a>
-                </div>
-                </div>
-
-                <div class="project-card card-hover rounded-xl p-6 fade-in">
-                <div class="w-12 h-12 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-lg flex items-center justify-center mb-4">
-                    <i class="fas fa-quran text-white text-xl"></i>
-                </div>
-                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">
-                    Quran Web App
-                </h3>
-                <p class="text-gray-600 dark:text-gray-300 mb-4">
-                    A modern Quran reading web app built with Next.js, featuring smooth navigation between surahs, 
-                    translation support, and elegant typography.
-                </p>
-                <div class="flex space-x-2 mb-4">
-                    <span class="text-xs bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 px-2 py-1 rounded">Next.js</span>
-                    <span class="text-xs bg-sky-100 dark:bg-sky-900 text-sky-800 dark:text-sky-200 px-2 py-1 rounded">Tailwind CSS</span>
-                    <span class="text-xs bg-emerald-100 dark:bg-emerald-900 text-emerald-800 dark:text-emerald-200 px-2 py-1 rounded">Fullstack</span>
-                </div>
-                <div class="flex space-x-3">
-                    <a href="https://quran.ngacir.my.id/" class="flex-1 bg-gradient-to-r from-emerald-500 to-teal-600 text-white py-2 px-4 rounded-lg text-sm font-medium hover:shadow-lg transition-all">
-                    View Details
-                    </a>
-                    <a href="https://github.com/ilhamganteng321/quran_web_app" class="px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg text-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition-all">
-                    <i class="fab fa-github"></i>
-                    </a>
-                </div>
-                </div>
-
-                <div class="project-card card-hover rounded-xl p-6 fade-in">
-                    <div class="w-12 h-12 bg-gradient-to-r from-green-600 to-emerald-500 rounded-lg flex items-center justify-center mb-4">
-                        <i class="fas fa-book-open text-white text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">
-                        Riyadhus Shalihin Reader
-                    </h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">
-                        A fullstack web app built with Next.js and SQLite that allows users to read, search, and explore 
-                        hadiths from the book Riyadhus Shalihin. Designed with Tailwind CSS for a clean UI, 
-                        and optimized for fast local database access and dynamic content rendering.
-                    </p>
-                    <div class="flex space-x-2 mb-4">
-                        <span class="text-xs bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 px-2 py-1 rounded">Next.js</span>
-                        <span class="text-xs bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-1 rounded">SQLite</span>
-                        <span class="text-xs bg-cyan-100 dark:bg-cyan-900 text-cyan-800 dark:text-cyan-200 px-2 py-1 rounded">Tailwind CSS</span>
-                        <span class="text-xs bg-amber-100 dark:bg-amber-900 text-amber-800 dark:text-amber-200 px-2 py-1 rounded">Fullstack</span>
-                    </div>
-                    <div class="flex space-x-3">
-                        <a href="https://riyadhus-shalihin.ngacir.my.id/" class="flex-1 bg-gradient-to-r from-green-600 to-emerald-500 text-white py-2 px-4 rounded-lg text-sm font-medium hover:shadow-lg transition-all">
-                        View Details
-                        </a>
-                        <a href="https://github.com/ilhamganteng321/Riyadhus-shalihin" class="px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg text-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition-all">
-                        <i class="fab fa-github"></i>
-                        </a>
-                    </div>
-                    </div>
-
-                    <div class="project-card card-hover rounded-xl p-6 fade-in">
-                <div class="w-12 h-12 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-lg flex items-center justify-center mb-4">
-                    <i class="fas fa-pen-nib text-white text-xl"></i>
-                </div>
-                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">
-                    Note app 
-                </h3>
-                <p class="text-gray-600 dark:text-gray-300 mb-4">
-                    A modern note-taking web app built with React js that integrates an AI API to 
-                    improve, rewrite, or generate notes intelligently. Users can write freely, and the AI helps enhance 
-                    clarity, grammar, and creativity. Designed with Tailwind CSS for a minimal and responsive UI.
-                </p>
-                <div class="flex space-x-2 mb-4">
-                    <span class="text-xs bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 px-2 py-1 rounded">React </span>
-                    <span class="text-xs bg-emerald-100 dark:bg-emerald-900 text-emerald-800 dark:text-emerald-200 px-2 py-1 rounded">Rest Api</span>
-                    <span class="text-xs bg-cyan-100 dark:bg-cyan-900 text-cyan-800 dark:text-cyan-200 px-2 py-1 rounded">Tailwind CSS</span>
-                    <span class="text-xs bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-2 py-1 rounded">AI Integration</span>
-                </div>
-                <div class="flex space-x-3">
-                    <a href="https://note-app-cyan-xi.vercel.app/" class="flex-1 bg-gradient-to-r from-blue-600 to-cyan-500 text-white py-2 px-4 rounded-lg text-sm font-medium hover:shadow-lg transition-all">
-                    View Details
-                    </a>
-                    
-                </div>
-                </div>
-
-
-
-                <div class="project-card card-hover rounded-xl p-6 fade-in">
-                    <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mb-4">
-                        <i class="fas fa-mobile-alt text-white text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Flutter CRUD App</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">
-                        Complete CRUD application built with Flutter and SQLite, featuring modern UI and efficient data management.
-                    </p>
-                    <div class="flex space-x-2 mb-4">
-                        <span class="text-xs bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded">Flutter</span>
-                        <span class="text-xs bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-1 rounded">SQLite</span>
-                    </div>
-                    <div class="flex space-x-3">
-                        <button class="flex-1 bg-gradient-to-r from-blue-500 to-purple-600 text-white py-2 px-4 rounded-lg text-sm font-medium hover:shadow-lg transition-all">
-                            View Details
-                        </button>
-                        <button class="px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg text-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition-all">
-                            <i class="fab fa-github"></i>
-                        </button>
-                    </div>
-                </div>
-
-                
-                
-                <div class="project-card card-hover rounded-xl p-6 fade-in">
-                    <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-lg flex items-center justify-center mb-4">
-                        <i class="fas fa-heartbeat text-white text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Diabetes Prediction App</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">
-                        AI-powered mobile app using Flutter, Firebase, and Flask API to predict diabetes risk with machine learning.
-                    </p>
-                    <div class="flex space-x-2 mb-4">
-                        <span class="text-xs bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded">Flutter</span>
-                        <span class="text-xs bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 px-2 py-1 rounded">Firebase</span>
-                        <span class="text-xs bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-2 py-1 rounded">Flask</span>
-                    </div>
-                    <div class="flex space-x-3">
-                        <a href="https://github.com/ilhamganteng321/project-2" class="flex-1 bg-gradient-to-r from-blue-500 to-purple-600 text-white py-2 px-4 rounded-lg text-sm font-medium hover:shadow-lg transition-all">
-                            View Details
-                        </a>
-                        <a href="https://github.com/ilhamganteng321/project-2" class="px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg text-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition-all">
-                            <i class="fab fa-github"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="project-card card-hover rounded-xl p-6 fade-in">
-                    <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-lg flex items-center justify-center mb-4">
-                        <i class="fas fa-robot text-white text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Education Chatbot</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">
-                        NLP-powered chatbot for JavaScript Q&A, helping students learn programming concepts interactively.
-                    </p>
-                    <div class="flex space-x-2 mb-4">
-                        <span class="text-xs bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 px-2 py-1 rounded">JavaScript</span>
-                        <span class="text-xs bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-2 py-1 rounded">NLP</span>
-                        <span class="text-xs bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded">node js</span>
-                    </div>
-                    <div class="flex space-x-3">
-                        <button class="flex-1 bg-gradient-to-r from-blue-500 to-purple-600 text-white py-2 px-4 rounded-lg text-sm font-medium hover:shadow-lg transition-all">
-                            View Details
-                        </button>
-                        <button class="px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg text-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition-all">
-                            <i class="fab fa-github"></i>
-                        </button>
-                    </div>
-                </div>
-                
-                <div class="project-card card-hover rounded-xl p-6 fade-in">
-                    <div class="w-12 h-12 bg-gradient-to-r from-red-500 to-red-600 rounded-lg flex items-center justify-center mb-4">
-                        <i class="fas fa-network-wired text-white text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">gRPC Systems</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">
-                        Distributed systems with Go server and multiple clients (JavaFX, Flutter) using gRPC protocol.
-                    </p>
-                    <div class="flex space-x-2 mb-4">
-                        <span class="text-xs bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded">Go</span>
-                        <span class="text-xs bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 px-2 py-1 rounded">Java</span>
-                        <span class="text-xs bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-1 rounded">gRPC</span>
-                    </div>
-                    <div class="flex space-x-3">
-                        <button class="flex-1 bg-gradient-to-r from-blue-500 to-purple-600 text-white py-2 px-4 rounded-lg text-sm font-medium hover:shadow-lg transition-all">
-                            View Details
-                        </button>
-                        <button class="px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg text-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition-all">
-                            <i class="fab fa-github"></i>
-                        </button>
-                    </div>
-                </div>
-                
-                <div class="project-card card-hover rounded-xl p-6 fade-in">
-                    <div class="w-12 h-12 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-lg flex items-center justify-center mb-4">
-                        <i class="fas fa-briefcase text-white text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Portfolio Website</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">
-                        Modern portfolio and resume website built with Vue.js frontend and Laravel backend API.
-                    </p>
-                    <div class="flex space-x-2 mb-4">
-                        <span class="text-xs bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-1 rounded">React</span>
-                        <span class="text-xs bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 px-2 py-1 rounded">Tailwindcss</span>
-                    </div>
-                    <div class="flex space-x-3">
-                        <button class="flex-1 bg-gradient-to-r from-blue-500 to-purple-600 text-white py-2 px-4 rounded-lg text-sm font-medium hover:shadow-lg transition-all">
-                            View Details
-                        </button>
-                        <button class="px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg text-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition-all">
-                            <i class="fab fa-github"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience & Education Timeline -->
-    <section id="education" class="py-20 bg-gray-50 dark:bg-gray-800">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16 fade-in">
-            <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Education</h2>
-            <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto"></div>
-        </div>
-        
-        <div class="relative">
-            <div class="absolute left-8 top-0 bottom-0 w-0.5 timeline-line"></div>
-            
-            <div class="space-y-12">
-                <div class="relative flex items-start fade-in">
-                    <div class="absolute left-6 w-4 h-4 bg-blue-500 rounded-full border-4 border-white dark:border-gray-800"></div>
-                    <div class="ml-16 bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md">
-                        <div class="flex items-center justify-between mb-2">
-                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Universitas Logistik dan Bisnis Internasional</h3>
-                            <span class="text-sm text-blue-600 dark:text-blue-400 font-medium">2022 - 2025</span>
-                        </div>
-                        <p class="text-gray-600 dark:text-gray-300 mb-3">D3 Informatics Engineering</p>
-                        <p class="text-gray-600 dark:text-gray-300">
-                            Currently pursuing my diploma degree with focus on software development, database management, 
-                            and modern programming frameworks. Active in academic projects involving AI, mobile development, and web technologies.
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="relative flex items-start fade-in">
-                    <div class="absolute left-6 w-4 h-4 bg-purple-500 rounded-full border-4 border-white dark:border-gray-800"></div>
-                    <div class="ml-16 bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md">
-                        <div class="flex items-center justify-between mb-2">
-                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">SMK-Plus Qurrota A'yun</h3>
-                            <span class="text-sm text-purple-600 dark:text-purple-400 font-medium">2019 - 2022</span>
-                        </div>
-                        <p class="text-gray-600 dark:text-gray-300 mb-3">Vocational High School</p>
-                        <p class="text-gray-600 dark:text-gray-300">
-                            Completed vocational education with strong foundation in computer science and programming fundamentals. 
-                            Started my journey in software development and gained initial experience with various programming languages.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="relative z-10 text-center md:text-left text-white px-4 fade-in">
+      <h1 class="text-5xl md:text-7xl font-bold mb-4">Ilham Arip</h1>
+      <p class="text-xl md:text-2xl mb-6 typing-animation" id="typing-text">
+        Informatics Engineering Fresh Graduate & Programmer
+      </p>
+      <p class="text-lg md:text-xl mb-8 max-w-2xl opacity-90">
+        Passionate about mobile and web development, creating innovative
+        solutions with modern technologies
+      </p>
+      <div class="space-x-4">
+        <button onclick="scrollToSection('projects')"
+          class="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-all transform hover:scale-105">
+          View My Work
+        </button>
+        <button onclick="scrollToSection('contact')"
+          class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition-all transform hover:scale-105">
+          Contact Me
+        </button>
+      </div>
     </div>
-</section>
 
-<!-- Experience Section -->
-<section id="experience" class="py-20 bg-white dark:bg-gray-900">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16 fade-in">
-            <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Experience</h2>
-            <div class="w-24 h-1 bg-gradient-to-r from-green-500 to-yellow-500 mx-auto"></div>
-        </div>
-        
-        <div class="relative">
-            <div class="absolute left-8 top-0 bottom-0 w-0.5 timeline-line"></div>
-            
-            <div class="space-y-12">
-                <div class="relative flex items-start fade-in">
-                    <div class="absolute left-6 w-4 h-4 bg-yellow-500 rounded-full border-4 border-white dark:border-gray-900"></div>
-                    <div class="ml-16 bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-md">
-                        <div class="flex items-center justify-between mb-2">
-                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Backend Developer Internship</h3>
-                            <span class="text-sm text-yellow-600 dark:text-yellow-400 font-medium">3 Months</span>
-                        </div>
-                        <p class="text-gray-600 dark:text-gray-300 mb-3">Internship / Work Practice</p>
-                        <p class="text-gray-600 dark:text-gray-300 mb-3">
-                            Worked as a backend developer and full-stack collaborator for 3 months. 
-                            Responsibilities included designing and implementing backend APIs, integrating backend with frontend, 
-                            and deploying applications on both shared hosting and Cloudflare environments.
-                        </p>
-                        <p class="text-gray-600 dark:text-gray-300">
-                            One of the deployed projects was: 
-                            <a href="https://santri.siapguna.org/" target="_blank" class="text-blue-500 hover:underline">santri.siapguna.org</a>.
-                        </p>
-                    </div>
-                </div>
+    <!-- Animasi Lottie -->
+    <lottie-player src="./ai_lottie.json" background="transparent" speed="1"
+      style="width: 400px; height: 400px" loop autoplay class="z-10 mt-8 md:mt-0">
+    </lottie-player>
+  </section>
 
-                <div class="relative flex items-start fade-in">
-                    <div class="absolute left-6 w-4 h-4 bg-green-500 rounded-full border-4 border-white dark:border-gray-900"></div>
-                    <div class="ml-16 bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-md">
-                        <div class="flex items-center justify-between mb-2">
-                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Self-Learning & Projects</h3>
-                            <span class="text-sm text-green-600 dark:text-green-400 font-medium">Ongoing</span>
-                        </div>
-                        <p class="text-gray-600 dark:text-gray-300 mb-3">Continuous Learning</p>
-                        <p class="text-gray-600 dark:text-gray-300">
-                            Actively learning new technologies through hands-on projects, online courses, and practical implementations. 
-                            Focus on modern frameworks, AI integration, and full-stack development practices.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
-    <!-- Achievements Section -->
-    <section id="achievements" class="py-20 bg-gray-50 dark:bg-gray-800">
+
+  <!-- About Section -->
+  <section id="about" class="py-20 bg-white dark:bg-gray-900">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16 fade-in">
-        <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Achievements & Certifications</h2>
+      <div class="text-center mb-16 fade-in">
+        <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          About Me
+        </h2>
+        <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto"></div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="fade-in">
+          <div
+            class="w-80 h-80 mx-auto bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+            <i class="fas fa-code text-8xl text-white"></i>
+          </div>
+        </div>
+
+        <div class="fade-in">
+          <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
+            Hello! I'm Ilham Arip
+          </h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+            I'm currently pursuing a D3 degree in Informatics Engineering at
+            Universitas Logistik dan Bisnis Internasional. My journey in
+            programming has been driven by curiosity and a passion for
+            creating meaningful digital solutions.
+          </p>
+          <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+            I have hands-on experience in developing CRUD applications,
+            AI-powered projects, gRPC client-server systems, and educational
+            chatbots. I'm particularly interested in modern frameworks and
+            enjoy exploring new technologies that can solve real-world
+            problems.
+          </p>
+
+          <div class="grid grid-cols-2 gap-4 mb-6">
+            <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+              <h4 class="font-semibold text-gray-900 dark:text-white mb-2">
+                Education
+              </h4>
+              <p class="text-sm text-gray-600 dark:text-gray-300">
+                D3 Informatics Engineering
+              </p>
+            </div>
+            <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+              <h4 class="font-semibold text-gray-900 dark:text-white mb-2">
+                Focus
+              </h4>
+              <p class="text-sm text-gray-600 dark:text-gray-300">
+                Mobile & Web Development
+              </p>
+            </div>
+          </div>
+
+          <a href="Ilham Arip cv.pdf" download
+            class="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all transform hover:scale-105">
+            <i class="fas fa-download mr-2"></i>
+            Download CV
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-20 bg-gray-50 dark:bg-gray-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-in">
+        <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          Skills & Tools
+        </h2>
+        <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto"></div>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="fade-in">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
+            <i class="fas fa-mobile-alt mr-2 text-blue-500"></i>
+            Mobile
+          </h3>
+          <div class="space-y-2">
+            <span
+              class="skill-tag inline-block bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm">Flutter</span>
+            <span
+              class="skill-tag inline-block bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm">Kotlin
+              Native</span>
+            <span
+              class="skill-tag inline-block bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm">Firebase</span>
+          </div>
+        </div>
+
+        <div class="fade-in">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
+            <i class="fas fa-globe mr-2 text-green-500"></i>
+            Web
+          </h3>
+          <div class="space-y-2">
+            <span
+              class="skill-tag inline-block bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm">React
+              js</span>
+            <span
+              class="skill-tag inline-block bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm">Next
+              js</span>
+            <span
+              class="skill-tag inline-block bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm">Laravel</span>
+            <span
+              class="skill-tag inline-block bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm">Vue.js</span>
+            <span
+              class="skill-tag inline-block bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm">Node.js</span>
+            <span
+              class="skill-tag inline-block bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm">CodeIgniter</span>
+            <span
+              class="skill-tag inline-block bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm">Next.js</span>
+            <span
+              class="skill-tag inline-block bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm">Html</span>
+            <span
+              class="skill-tag inline-block bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm">Css</span>
+            <span
+              class="skill-tag inline-block bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm">Astro</span>
+          </div>
+        </div>
+
+        <div class="fade-in">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
+            <i class="fas fa-server mr-2 text-purple-500"></i>
+            Backend
+          </h3>
+          <div class="space-y-2">
+            <span
+              class="skill-tag inline-block bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm">Node
+              js</span>
+            <span
+              class="skill-tag inline-block bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm">Firebase</span>
+            <span
+              class="skill-tag inline-block bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm">Flask
+              API</span>
+          </div>
+        </div>
+
+        <div class="fade-in">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
+            <i class="fas fa-database mr-2 text-red-500"></i>
+            Database & Others
+          </h3>
+          <div class="space-y-2">
+            <span
+              class="skill-tag inline-block bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm">SQLite</span>
+            <span
+              class="skill-tag inline-block bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm">PostgreSQL</span>
+            <span
+              class="skill-tag inline-block bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm">MySQL</span>
+            <span
+              class="skill-tag inline-block bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm">MongoDB</span>
+            <span
+              class="skill-tag inline-block bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm">Firestore</span>
+            <span
+              class="skill-tag inline-block bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm">Tailwind
+              CSS</span>
+            <span
+              class="skill-tag inline-block bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm">GraphQL</span>
+            <span
+              class="skill-tag inline-block bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm">GitHub</span>
+            <span
+              class="skill-tag inline-block bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm">Visual
+              Studio Code</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-20 bg-white dark:bg-gray-900">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-in">
+        <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          Featured Projects
+        </h2>
+        <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto"></div>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="project-card card-hover rounded-xl p-6 fade-in">
+          <div
+            class="w-12 h-12 bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-lg flex items-center justify-center mb-4">
+            <i class="fas fa-wallet text-white text-xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+            Finance Tracker App
+          </h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">
+            Personal finance tracker built with React, Tailwind CSS, and
+            Firebase. Helps users manage expenses, track budgets, and
+            visualize spending.
+          </p>
+          <div class="flex space-x-2 mb-4">
+            <span
+              class="text-xs bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded">React</span>
+            <span
+              class="text-xs bg-pink-100 dark:bg-pink-900 text-pink-800 dark:text-pink-200 px-2 py-1 rounded">Tailwind
+              CSS</span>
+            <span
+              class="text-xs bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 px-2 py-1 rounded">Firebase</span>
+          </div>
+          <div class="flex space-x-3">
+            <!-- View Details ke website -->
+            <a href="https://finance.ngacir.my.id" target="_blank"
+              class="flex-1 text-center bg-gradient-to-r from-blue-500 to-purple-600 text-white py-2 px-4 rounded-lg text-sm font-medium hover:shadow-lg transition-all">
+              View Details
+            </a>
+
+            <!-- GitHub -->
+            <a href="https://github.com/ilhamganteng321/finance_tracker" target="_blank"
+              class="px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg text-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition-all">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card card-hover rounded-xl p-6 fade-in">
+          <div
+            class="w-12 h-12 bg-gradient-to-r from-pink-500 to-pink-600 rounded-lg flex items-center justify-center mb-4">
+            <i class="fas fa-blog text-white text-xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+            Personal Blog App
+          </h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">
+            A modern blogging platform built with React, Tailwind CSS, and
+            Firebase. Supports creating, editing, and managing posts with
+            real-time updates.
+          </p>
+          <div class="flex space-x-2 mb-4">
+            <span
+              class="text-xs bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded">React</span>
+            <span
+              class="text-xs bg-pink-100 dark:bg-pink-900 text-pink-800 dark:text-pink-200 px-2 py-1 rounded">Tailwind
+              CSS</span>
+            <span
+              class="text-xs bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 px-2 py-1 rounded">Firebase</span>
+          </div>
+          <div class="flex space-x-3">
+            <!-- View Details ke website -->
+            <a href="https://blog.ngacir.my.id" target="_blank"
+              class="flex-1 text-center bg-gradient-to-r from-blue-500 to-purple-600 text-white py-2 px-4 rounded-lg text-sm font-medium hover:shadow-lg transition-all">
+              View Details
+            </a>
+
+            <!-- GitHub -->
+            <a href="https://github.com/ilhamganteng321/blog_app" target="_blank"
+              class="px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg text-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition-all">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card card-hover rounded-xl p-6 fade-in">
+          <div
+            class="w-12 h-12 bg-gradient-to-r from-blue-500 to-green-600 rounded-lg flex items-center justify-center mb-4">
+            <i class="fas fa-trophy text-white text-xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+            Tournament Manager App
+          </h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">
+            A web app for managing tournaments, built with React, Tailwind
+            CSS, and Firebase. Supports tournament creation, team management,
+            match scheduling, and real-time standings.
+          </p>
+          <div class="flex space-x-2 mb-4">
+            <span
+              class="text-xs bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded">React</span>
+            <span
+              class="text-xs bg-pink-100 dark:bg-pink-900 text-pink-800 dark:text-pink-200 px-2 py-1 rounded">Tailwind
+              CSS</span>
+            <span
+              class="text-xs bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 px-2 py-1 rounded">Firebase</span>
+          </div>
+          <div class="flex space-x-3">
+            <!-- View Details ke website -->
+            <a href="https://tour.ngacir.my.id" target="_blank"
+              class="flex-1 text-center bg-gradient-to-r from-blue-500 to-purple-600 text-white py-2 px-4 rounded-lg text-sm font-medium hover:shadow-lg transition-all">
+              View Details
+            </a>
+
+            <!-- GitHub -->
+            <a href="https://github.com/ilhamganteng321/tourneyku" target="_blank"
+              class="px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg text-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition-all">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card card-hover rounded-xl p-6 fade-in">
+          <div
+            class="w-12 h-12 bg-gradient-to-r from-indigo-500 to-blue-600 rounded-lg flex items-center justify-center mb-4">
+            <i class="fas fa-chart-line text-white text-xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+            Product Analytics Dashboard
+          </h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">
+            A responsive analytics dashboard built with React and Tailwind
+            CSS, featuring interactive charts powered by Chart.js. The app
+            dynamically visualizes real-time product data fetched from online
+            APIs for insightful performance tracking.
+          </p>
+          <div class="flex space-x-2 mb-4">
+            <span
+              class="text-xs bg-sky-100 dark:bg-sky-900 text-sky-800 dark:text-sky-200 px-2 py-1 rounded">React</span>
+            <span
+              class="text-xs bg-cyan-100 dark:bg-cyan-900 text-cyan-800 dark:text-cyan-200 px-2 py-1 rounded">Tailwind
+              CSS</span>
+            <span
+              class="text-xs bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-2 py-1 rounded">Chart.js</span>
+            <span
+              class="text-xs bg-amber-100 dark:bg-amber-900 text-amber-800 dark:text-amber-200 px-2 py-1 rounded">REST
+              API</span>
+          </div>
+          <div class="flex space-x-3">
+            <a href="https://proana.ngacir.my.id/"
+              class="flex-1 bg-gradient-to-r from-indigo-500 to-blue-600 text-white py-2 px-4 rounded-lg text-sm font-medium hover:shadow-lg transition-all">
+              View Details
+            </a>
+            <a href="https://github.com/ilhamganteng321/product-analistyc"
+              class="px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg text-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition-all">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card card-hover rounded-xl p-6 fade-in">
+          <div
+            class="w-12 h-12 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-lg flex items-center justify-center mb-4">
+            <i class="fas fa-quran text-white text-xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+            Quran Web App
+          </h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">
+            A modern Quran reading web app built with Next.js, featuring
+            smooth navigation between surahs, translation support, and elegant
+            typography.
+          </p>
+          <div class="flex space-x-2 mb-4">
+            <span
+              class="text-xs bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 px-2 py-1 rounded">Next.js</span>
+            <span class="text-xs bg-sky-100 dark:bg-sky-900 text-sky-800 dark:text-sky-200 px-2 py-1 rounded">Tailwind
+              CSS</span>
+            <span
+              class="text-xs bg-emerald-100 dark:bg-emerald-900 text-emerald-800 dark:text-emerald-200 px-2 py-1 rounded">Fullstack</span>
+          </div>
+          <div class="flex space-x-3">
+            <a href="https://quran.ngacir.my.id/"
+              class="flex-1 bg-gradient-to-r from-emerald-500 to-teal-600 text-white py-2 px-4 rounded-lg text-sm font-medium hover:shadow-lg transition-all">
+              View Details
+            </a>
+            <a href="https://github.com/ilhamganteng321/quran_web_app"
+              class="px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg text-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition-all">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card card-hover rounded-xl p-6 fade-in">
+          <div
+            class="w-12 h-12 bg-gradient-to-r from-green-600 to-emerald-500 rounded-lg flex items-center justify-center mb-4">
+            <i class="fas fa-book-open text-white text-xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+            Riyadhus Shalihin Reader
+          </h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">
+            A fullstack web app built with Next.js and SQLite that allows
+            users to read, search, and explore hadiths from the book Riyadhus
+            Shalihin. Designed with Tailwind CSS for a clean UI, and optimized
+            for fast local database access and dynamic content rendering.
+          </p>
+          <div class="flex space-x-2 mb-4">
+            <span
+              class="text-xs bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 px-2 py-1 rounded">Next.js</span>
+            <span
+              class="text-xs bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-1 rounded">SQLite</span>
+            <span
+              class="text-xs bg-cyan-100 dark:bg-cyan-900 text-cyan-800 dark:text-cyan-200 px-2 py-1 rounded">Tailwind
+              CSS</span>
+            <span
+              class="text-xs bg-amber-100 dark:bg-amber-900 text-amber-800 dark:text-amber-200 px-2 py-1 rounded">Fullstack</span>
+          </div>
+          <div class="flex space-x-3">
+            <a href="https://riyadhus-shalihin.ngacir.my.id/"
+              class="flex-1 bg-gradient-to-r from-green-600 to-emerald-500 text-white py-2 px-4 rounded-lg text-sm font-medium hover:shadow-lg transition-all">
+              View Details
+            </a>
+            <a href="https://github.com/ilhamganteng321/Riyadhus-shalihin"
+              class="px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg text-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition-all">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card card-hover rounded-xl p-6 fade-in">
+          <div
+            class="w-12 h-12 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-lg flex items-center justify-center mb-4">
+            <i class="fas fa-pen-nib text-white text-xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+            Note app
+          </h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">
+            A modern note-taking web app built with React js that integrates
+            an AI API to improve, rewrite, or generate notes intelligently.
+            Users can write freely, and the AI helps enhance clarity, grammar,
+            and creativity. Designed with Tailwind CSS for a minimal and
+            responsive UI.
+          </p>
+          <div class="flex space-x-2 mb-4">
+            <span
+              class="text-xs bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 px-2 py-1 rounded">React
+            </span>
+            <span
+              class="text-xs bg-emerald-100 dark:bg-emerald-900 text-emerald-800 dark:text-emerald-200 px-2 py-1 rounded">Rest
+              Api</span>
+            <span
+              class="text-xs bg-cyan-100 dark:bg-cyan-900 text-cyan-800 dark:text-cyan-200 px-2 py-1 rounded">Tailwind
+              CSS</span>
+            <span
+              class="text-xs bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-2 py-1 rounded">AI
+              Integration</span>
+          </div>
+          <div class="flex space-x-3">
+            <a href="https://note-app-cyan-xi.vercel.app/"
+              class="flex-1 bg-gradient-to-r from-blue-600 to-cyan-500 text-white py-2 px-4 rounded-lg text-sm font-medium hover:shadow-lg transition-all">
+              View Details
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card card-hover rounded-xl p-6 fade-in">
+          <div
+            class="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mb-4">
+            <i class="fas fa-mobile-alt text-white text-xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+            Flutter CRUD App
+          </h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">
+            Complete CRUD application built with Flutter and SQLite, featuring
+            modern UI and efficient data management.
+          </p>
+          <div class="flex space-x-2 mb-4">
+            <span
+              class="text-xs bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded">Flutter</span>
+            <span
+              class="text-xs bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-1 rounded">SQLite</span>
+          </div>
+          <div class="flex space-x-3">
+            <button
+              class="flex-1 bg-gradient-to-r from-blue-500 to-purple-600 text-white py-2 px-4 rounded-lg text-sm font-medium hover:shadow-lg transition-all">
+              View Details
+            </button>
+            <button
+              class="px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg text-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition-all">
+              <i class="fab fa-github"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="project-card card-hover rounded-xl p-6 fade-in">
+          <div
+            class="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-lg flex items-center justify-center mb-4">
+            <i class="fas fa-heartbeat text-white text-xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+            Diabetes Prediction App
+          </h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">
+            AI-powered mobile app using Flutter, Firebase, and Flask API to
+            predict diabetes risk with machine learning.
+          </p>
+          <div class="flex space-x-2 mb-4">
+            <span
+              class="text-xs bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded">Flutter</span>
+            <span
+              class="text-xs bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 px-2 py-1 rounded">Firebase</span>
+            <span
+              class="text-xs bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-2 py-1 rounded">Flask</span>
+          </div>
+          <div class="flex space-x-3">
+            <a href="https://github.com/ilhamganteng321/project-2"
+              class="flex-1 bg-gradient-to-r from-blue-500 to-purple-600 text-white py-2 px-4 rounded-lg text-sm font-medium hover:shadow-lg transition-all">
+              View Details
+            </a>
+            <a href="https://github.com/ilhamganteng321/project-2"
+              class="px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg text-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition-all">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card card-hover rounded-xl p-6 fade-in">
+          <div
+            class="w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-lg flex items-center justify-center mb-4">
+            <i class="fas fa-robot text-white text-xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+            Education Chatbot
+          </h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">
+            NLP-powered chatbot for JavaScript Q&A, helping students learn
+            programming concepts interactively.
+          </p>
+          <div class="flex space-x-2 mb-4">
+            <span
+              class="text-xs bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 px-2 py-1 rounded">JavaScript</span>
+            <span
+              class="text-xs bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-2 py-1 rounded">NLP</span>
+            <span class="text-xs bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded">node
+              js</span>
+          </div>
+          <div class="flex space-x-3">
+            <button
+              class="flex-1 bg-gradient-to-r from-blue-500 to-purple-600 text-white py-2 px-4 rounded-lg text-sm font-medium hover:shadow-lg transition-all">
+              View Details
+            </button>
+            <button
+              class="px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg text-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition-all">
+              <i class="fab fa-github"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="project-card card-hover rounded-xl p-6 fade-in">
+          <div
+            class="w-12 h-12 bg-gradient-to-r from-red-500 to-red-600 rounded-lg flex items-center justify-center mb-4">
+            <i class="fas fa-network-wired text-white text-xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+            gRPC Systems
+          </h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">
+            Distributed systems with Go server and multiple clients (JavaFX,
+            Flutter) using gRPC protocol.
+          </p>
+          <div class="flex space-x-2 mb-4">
+            <span
+              class="text-xs bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded">Go</span>
+            <span
+              class="text-xs bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 px-2 py-1 rounded">Java</span>
+            <span
+              class="text-xs bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-1 rounded">gRPC</span>
+          </div>
+          <div class="flex space-x-3">
+            <button
+              class="flex-1 bg-gradient-to-r from-blue-500 to-purple-600 text-white py-2 px-4 rounded-lg text-sm font-medium hover:shadow-lg transition-all">
+              View Details
+            </button>
+            <button
+              class="px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg text-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition-all">
+              <i class="fab fa-github"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="project-card card-hover rounded-xl p-6 fade-in">
+          <div
+            class="w-12 h-12 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-lg flex items-center justify-center mb-4">
+            <i class="fas fa-briefcase text-white text-xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+            Portfolio Website
+          </h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">
+            Modern portfolio and resume website built with Vue.js frontend and
+            Laravel backend API.
+          </p>
+          <div class="flex space-x-2 mb-4">
+            <span
+              class="text-xs bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-1 rounded">React</span>
+            <span
+              class="text-xs bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 px-2 py-1 rounded">Tailwindcss</span>
+          </div>
+          <div class="flex space-x-3">
+            <button
+              class="flex-1 bg-gradient-to-r from-blue-500 to-purple-600 text-white py-2 px-4 rounded-lg text-sm font-medium hover:shadow-lg transition-all">
+              View Details
+            </button>
+            <button
+              class="px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg text-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition-all">
+              <i class="fab fa-github"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience & Education Timeline -->
+  <section id="education" class="py-20 bg-gray-50 dark:bg-gray-800">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-in">
+        <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          Education
+        </h2>
+        <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto"></div>
+      </div>
+
+      <div class="relative">
+        <div class="absolute left-8 top-0 bottom-0 w-0.5 timeline-line"></div>
+
+        <div class="space-y-12">
+          <div class="relative flex items-start fade-in">
+            <div class="absolute left-6 w-4 h-4 bg-blue-500 rounded-full border-4 border-white dark:border-gray-800">
+            </div>
+            <div class="ml-16 bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                  Universitas Logistik dan Bisnis Internasional
+                </h3>
+                <span class="text-sm text-blue-600 dark:text-blue-400 font-medium">2022 - 2025</span>
+              </div>
+              <p class="text-gray-600 dark:text-gray-300 mb-3">
+                D3 Informatics Engineering
+              </p>
+              <p class="text-gray-600 dark:text-gray-300">
+                Currently pursuing my diploma degree with focus on software
+                development, database management, and modern programming
+                frameworks. Active in academic projects involving AI, mobile
+                development, and web technologies.
+              </p>
+            </div>
+          </div>
+
+          <div class="relative flex items-start fade-in">
+            <div class="absolute left-6 w-4 h-4 bg-purple-500 rounded-full border-4 border-white dark:border-gray-800">
+            </div>
+            <div class="ml-16 bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                  SMK-Plus Qurrota A'yun
+                </h3>
+                <span class="text-sm text-purple-600 dark:text-purple-400 font-medium">2019 - 2022</span>
+              </div>
+              <p class="text-gray-600 dark:text-gray-300 mb-3">
+                Vocational High School
+              </p>
+              <p class="text-gray-600 dark:text-gray-300">
+                Completed vocational education with strong foundation in
+                computer science and programming fundamentals. Started my
+                journey in software development and gained initial experience
+                with various programming languages.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="py-20 bg-white dark:bg-gray-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-in">
+        <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          Experience
+        </h2>
+        <div class="w-24 h-1 bg-gradient-to-r from-green-500 to-yellow-500 mx-auto"></div>
+      </div>
+
+      <div class="relative">
+        <div class="absolute left-8 top-0 bottom-0 w-0.5 timeline-line"></div>
+
+        <div class="space-y-12">
+          <div class="relative flex items-start fade-in">
+            <div class="absolute left-6 w-4 h-4 bg-yellow-500 rounded-full border-4 border-white dark:border-gray-900">
+            </div>
+            <div class="ml-16 bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-md">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                  Backend Developer Internship
+                </h3>
+                <span class="text-sm text-yellow-600 dark:text-yellow-400 font-medium">3 Months</span>
+              </div>
+              <p class="text-gray-600 dark:text-gray-300 mb-3">
+                Internship / Work Practice
+              </p>
+              <p class="text-gray-600 dark:text-gray-300 mb-3">
+                Worked as a backend developer and full-stack collaborator for
+                3 months. Responsibilities included designing and implementing
+                backend APIs, integrating backend with frontend, and deploying
+                applications on both shared hosting and Cloudflare
+                environments.
+              </p>
+              <p class="text-gray-600 dark:text-gray-300">
+                One of the deployed projects was:
+                <a href="https://santri.siapguna.org/" target="_blank"
+                  class="text-blue-500 hover:underline">santri.siapguna.org</a>.
+              </p>
+            </div>
+          </div>
+
+          <div class="relative flex items-start fade-in">
+            <div class="absolute left-6 w-4 h-4 bg-green-500 rounded-full border-4 border-white dark:border-gray-900">
+            </div>
+            <div class="ml-16 bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-md">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                  Self-Learning & Projects
+                </h3>
+                <span class="text-sm text-green-600 dark:text-green-400 font-medium">Ongoing</span>
+              </div>
+              <p class="text-gray-600 dark:text-gray-300 mb-3">
+                Continuous Learning
+              </p>
+              <p class="text-gray-600 dark:text-gray-300">
+                Actively learning new technologies through hands-on projects,
+                online courses, and practical implementations. Focus on modern
+                frameworks, AI integration, and full-stack development
+                practices.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Achievements Section -->
+  <section id="achievements" class="py-20 bg-gray-50 dark:bg-gray-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-in">
+        <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          Achievements & Certifications
+        </h2>
         <div class="w-24 h-1 bg-gradient-to-r from-yellow-500 to-orange-500 mx-auto"></div>
         <p class="text-gray-600 dark:text-gray-300 mt-4">
-            Recognitions and certifications earned through continuous learning and dedication to development.
+          Recognitions and certifications earned through continuous learning
+          and dedication to development.
         </p>
-        </div>
+      </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Frontend Certification -->
         <div class="project-card card-hover rounded-xl p-6 fade-in">
-            <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center mb-4">
+          <div
+            class="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center mb-4">
             <i class="fas fa-laptop-code text-white text-xl"></i>
-            </div>
-            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Frontend Development Certification</h3>
-            <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Completed the <strong>Frontend Development</strong> certification from <strong>freeCodeCamp</strong>, 
-            covering responsive design, JavaScript, and React fundamentals.
-            </p>
-            <a href="./fe.jpg"
-            target="_blank"
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+            Frontend Development Certification
+          </h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">
+            Completed the <strong>Frontend Development</strong> certification
+            from <strong>freeCodeCamp</strong>, covering responsive design,
+            JavaScript, and React fundamentals.
+          </p>
+          <a href="./fe.jpg" target="_blank"
             class="inline-block bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-5 py-2 rounded-lg font-medium hover:shadow-lg transition-all">
             View Certificate
-            </a>
+          </a>
         </div>
 
         <!-- Backend API Certification -->
         <div class="project-card card-hover rounded-xl p-6 fade-in">
-            <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-600 rounded-lg flex items-center justify-center mb-4">
+          <div
+            class="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-600 rounded-lg flex items-center justify-center mb-4">
             <i class="fas fa-server text-white text-xl"></i>
-            </div>
-            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Backend API Certification</h3>
-            <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Earned <strong>Backend Development and APIs</strong> certification from <strong>freeCodeCamp</strong>,
-            mastering Node.js, Express, and RESTful API development.
-            </p>
-            <a href="./be.jpg"
-            target="_blank"
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+            Backend API Certification
+          </h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">
+            Earned <strong>Backend Development and APIs</strong> certification
+            from <strong>freeCodeCamp</strong>, mastering Node.js, Express,
+            and RESTful API development.
+          </p>
+          <a href="./be.jpg" target="_blank"
             class="inline-block bg-gradient-to-r from-green-500 to-emerald-600 text-white px-5 py-2 rounded-lg font-medium hover:shadow-lg transition-all">
             View Certificate
-            </a>
+          </a>
         </div>
 
         <!-- Extra Achievement Example -->
         <div class="project-card card-hover rounded-xl p-6 fade-in">
-            <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-600 rounded-lg flex items-center justify-center mb-4">
+          <div
+            class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-600 rounded-lg flex items-center justify-center mb-4">
             <i class="fas fa-award text-white text-xl"></i>
-            </div>
-            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">AI Integration Project</h3>
-            <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Recognized for developing an <strong>AI-powered note app</strong> that integrates Groq API for smart writing assistance.
-            </p>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+            AI Integration Project
+          </h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">
+            Recognized for developing an
+            <strong>AI-powered note app</strong> that integrates Groq API for
+            smart writing assistance.
+          </p>
         </div>
-        </div>
+      </div>
     </div>
-    </section>
+  </section>
 
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 bg-white dark:bg-gray-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-in">
+        <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          Get In Touch
+        </h2>
+        <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-6"></div>
+        <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          I'm always interested in new opportunities and collaborations. Feel
+          free to reach out if you'd like to discuss a project or just say
+          hello!
+        </p>
+      </div>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-white dark:bg-gray-900">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Get In Touch</h2>
-                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-6"></div>
-                <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                    I'm always interested in new opportunities and collaborations. Feel free to reach out if you'd like to discuss a project or just say hello!
+      <div class="grid md:grid-cols-2 gap-12">
+        <div class="fade-in">
+          <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
+            Contact Information
+          </h3>
+
+          <div class="space-y-4">
+            <div class="flex items-center">
+              <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mr-4">
+                <i class="fas fa-envelope text-blue-600 dark:text-blue-400"></i>
+              </div>
+              <div>
+                <p class="text-gray-900 dark:text-white font-medium">Email</p>
+                <p class="text-gray-600 dark:text-gray-300">
+                  ilhamariforpin007tea@gmail.com
                 </p>
+              </div>
             </div>
-            
-            <div class="grid md:grid-cols-2 gap-12">
-                <div class="fade-in">
-                    <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-6">Contact Information</h3>
-                    
-                    <div class="space-y-4">
-                        <div class="flex items-center">
-                            <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mr-4">
-                                <i class="fas fa-envelope text-blue-600 dark:text-blue-400"></i>
-                            </div>
-                            <div>
-                                <p class="text-gray-900 dark:text-white font-medium">Email</p>
-                                <p class="text-gray-600 dark:text-gray-300">ilhamariforpin007tea@gmail.com</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-center">
-                            <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-lg flex items-center justify-center mr-4">
-                                <i class="fab fa-github text-purple-600 dark:text-purple-400"></i>
-                            </div>
-                            <div>
-                                <p class="text-gray-900 dark:text-white font-medium">GitHub</p>
-                                <p class="text-gray-600 dark:text-gray-300">https://github.com/ilhamganteng321</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-center">
-                            <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mr-4">
-                                <i class="fab fa-whatsapp text-blue-600 dark:text-blue-400"></i>
-                            </div>
-                            <div>
-                                <p class="text-gray-900 dark:text-white font-medium">Whatsapp</p>
-                                <p class="text-gray-600 dark:text-gray-300">0881 023 504 625</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- <div class="fade-in">
+
+            <div class="flex items-center">
+              <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-lg flex items-center justify-center mr-4">
+                <i class="fab fa-github text-purple-600 dark:text-purple-400"></i>
+              </div>
+              <div>
+                <p class="text-gray-900 dark:text-white font-medium">
+                  GitHub
+                </p>
+                <p class="text-gray-600 dark:text-gray-300">
+                  https://github.com/ilhamganteng321
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-center">
+              <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mr-4">
+                <i class="fab fa-whatsapp text-blue-600 dark:text-blue-400"></i>
+              </div>
+              <div>
+                <p class="text-gray-900 dark:text-white font-medium">
+                  Whatsapp
+                </p>
+                <p class="text-gray-600 dark:text-gray-300">
+                  0881 023 504 625
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="fade-in">
                     <form id="contact-form" class="space-y-6">
                         <div>
                             <label class="block text-gray-700 dark:text-gray-300 font-medium mb-2">Name</label>
@@ -839,191 +1090,193 @@
                         </button>
                     </form>
                 </div> -->
-            </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <p class="text-gray-400">
+          © 2024 Ilham Arip. Built with passion and modern web technologies.
+        </p>
+        <div class="flex justify-center space-x-6 mt-4">
+          <a href="#" class="text-gray-400 hover:text-white transition-colors">
+            <i class="fab fa-github text-xl"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors">
+            <i class="fab fa-linkedin text-xl"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors">
+            <i class="fas fa-envelope text-xl"></i>
+          </a>
         </div>
-    </section>
+      </div>
+      <!-- From Uiverse.io by zanina-yassine -->
+    </div>
+  </footer>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-8">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-                <p class="text-gray-400">
-                    © 2024 Ilham Arip. Built with passion and modern web technologies.
-                </p>
-                <div class="flex justify-center space-x-6 mt-4">
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                        <i class="fab fa-github text-xl"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                        <i class="fab fa-linkedin text-xl"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                        <i class="fas fa-envelope text-xl"></i>
-                    </a>
-                </div>
-            </div>
-            <!-- From Uiverse.io by zanina-yassine --> 
-        </div>
-    </footer>
+  <script>
+    const themeToggle = document.getElementById("theme-toggle");
+    const themeIconLight = document.getElementById("theme-icon-light");
+    const themeIconDark = document.getElementById("theme-icon-dark");
+    const html = document.documentElement;
+    const menuToggle = document.getElementById("menu-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
 
-    <script>
-         const themeToggle = document.getElementById('theme-toggle');
-        const themeIconLight = document.getElementById('theme-icon-light');
-        const themeIconDark = document.getElementById('theme-icon-dark');
-        const html = document.documentElement;
-        const menuToggle = document.getElementById('menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
+    menuToggle.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
 
-        menuToggle.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+    // Tutup menu setelah klik link
+    document.querySelectorAll("#mobile-menu a").forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+      });
+    });
+
+    // Function to update theme icons
+    function updateThemeIcons(isDark) {
+      if (isDark) {
+        themeIconLight.classList.add("hidden");
+        themeIconDark.classList.remove("hidden");
+      } else {
+        themeIconLight.classList.remove("hidden");
+        themeIconDark.classList.add("hidden");
+      }
+    }
+
+    // Check for saved theme preference or default to light mode
+    const currentTheme = localStorage.getItem("theme") || "light";
+    const isDarkMode = currentTheme === "dark";
+    html.classList.toggle("dark", isDarkMode);
+    updateThemeIcons(isDarkMode);
+
+    themeToggle.addEventListener("click", () => {
+      const newIsDark = !html.classList.contains("dark");
+      html.classList.toggle("dark", newIsDark);
+      updateThemeIcons(newIsDark);
+      localStorage.setItem("theme", newIsDark ? "dark" : "light");
+    });
+
+    // Smooth scrolling
+    function scrollToSection(sectionId) {
+      document.getElementById(sectionId).scrollIntoView({
+        behavior: "smooth",
+      });
+    }
+
+    // Navigation smooth scroll
+    document.querySelectorAll('nav a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute("href"));
+        target.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
         });
+      });
+    });
 
-        // Tutup menu setelah klik link
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
-            });
-        });
-        
-        // Function to update theme icons
-        function updateThemeIcons(isDark) {
-            if (isDark) {
-                themeIconLight.classList.add('hidden');
-                themeIconDark.classList.remove('hidden');
-            } else {
-                themeIconLight.classList.remove('hidden');
-                themeIconDark.classList.add('hidden');
-            }
+    // Typing animation
+    const typingText = document.getElementById("typing-text");
+    const texts = [
+      "Informatics Engineering Fresh Graduate & Programmer",
+      "Mobile App Developer",
+      "Web Developer",
+      "AI Enthusiast",
+    ];
+    let textIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function typeWriter() {
+      const currentText = texts[textIndex];
+
+      if (isDeleting) {
+        typingText.textContent = currentText.substring(0, charIndex - 1);
+        charIndex--;
+      } else {
+        typingText.textContent = currentText.substring(0, charIndex + 1);
+        charIndex++;
+      }
+
+      let typeSpeed = isDeleting ? 50 : 100;
+
+      if (!isDeleting && charIndex === currentText.length) {
+        typeSpeed = 2000;
+        isDeleting = true;
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        textIndex = (textIndex + 1) % texts.length;
+        typeSpeed = 500;
+      }
+
+      setTimeout(typeWriter, typeSpeed);
+    }
+
+    // Start typing animation
+    setTimeout(typeWriter, 1000);
+
+    // Fade in animation on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px",
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.style.animationDelay = "0.2s";
+          entry.target.classList.add("fade-in");
         }
-        
-        // Check for saved theme preference or default to light mode
-        const currentTheme = localStorage.getItem('theme') || 'light';
-        const isDarkMode = currentTheme === 'dark';
-        html.classList.toggle('dark', isDarkMode);
-        updateThemeIcons(isDarkMode);
-        
-        themeToggle.addEventListener('click', () => {
-            const newIsDark = !html.classList.contains('dark');
-            html.classList.toggle('dark', newIsDark);
-            updateThemeIcons(newIsDark);
-            localStorage.setItem('theme', newIsDark ? 'dark' : 'light');
-        });
-        
-        // Smooth scrolling
-        function scrollToSection(sectionId) {
-            document.getElementById(sectionId).scrollIntoView({
-                behavior: 'smooth'
-            });
-        }
-        
-        // Navigation smooth scroll
-        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            });
-        });
-        
-        // Typing animation
-        const typingText = document.getElementById('typing-text');
-        const texts = [
-            'Informatics Engineering Fresh Graduate & Programmer',
-            'Mobile App Developer',
-            'Web Developer',
-            'AI Enthusiast'
-        ];
-        let textIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        
-        function typeWriter() {
-            const currentText = texts[textIndex];
-            
-            if (isDeleting) {
-                typingText.textContent = currentText.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                typingText.textContent = currentText.substring(0, charIndex + 1);
-                charIndex++;
-            }
-            
-            let typeSpeed = isDeleting ? 50 : 100;
-            
-            if (!isDeleting && charIndex === currentText.length) {
-                typeSpeed = 2000;
-                isDeleting = true;
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                textIndex = (textIndex + 1) % texts.length;
-                typeSpeed = 500;
-            }
-            
-            setTimeout(typeWriter, typeSpeed);
-        }
-        
-        // Start typing animation
-        setTimeout(typeWriter, 1000);
-        
-        // Fade in animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animationDelay = '0.2s';
-                    entry.target.classList.add('fade-in');
-                }
-            });
-        }, observerOptions);
-        
-        // Observe all elements with fade-in class
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-        
-        // // Contact form submission
-        // document.getElementById('contact-form').addEventListener('submit', function(e) {
-        //     e.preventDefault();
-            
-        //     const name = document.getElementById('name').value;
-        //     const email = document.getElementById('email').value;
-        //     const message = document.getElementById('message').value;
-            
-        //     if (name && email && message) {
-        //         // Simulate form submission
-        //         alert('Thank you for your message! I\'ll get back to you soon.');
-        //         this.reset();
-        //     } else {
-        //         alert('Please fill in all fields.');
-        //     }
-        // });
-        
-        // Certificate download
-        // document.getElementById('download-cert').addEventListener('click', function() {
-        //         const a = document.createElement('a');
-        //         a.href = './Ilham Arip cv.pdf'; // path ke file PDF
-        //         a.download = 'Ilham_Arip_CV.pdf';
-        //         document.body.appendChild(a);
-        //         a.click();
-        //         document.body.removeChild(a);
-        //     });
-                    
-        // Add scroll effect to navigation
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 100) {
-                nav.classList.add('shadow-lg');
-            } else {
-                nav.classList.remove('shadow-lg');
-            }
-        });
-    </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9804e112d79786be',t:'MTc1ODA3MzA1Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+      });
+    }, observerOptions);
+
+    // Observe all elements with fade-in class
+    document.querySelectorAll(".fade-in").forEach((el) => {
+      observer.observe(el);
+    });
+
+    // // Contact form submission
+    // document.getElementById('contact-form').addEventListener('submit', function(e) {
+    //     e.preventDefault();
+
+    //     const name = document.getElementById('name').value;
+    //     const email = document.getElementById('email').value;
+    //     const message = document.getElementById('message').value;
+
+    //     if (name && email && message) {
+    //         // Simulate form submission
+    //         alert('Thank you for your message! I\'ll get back to you soon.');
+    //         this.reset();
+    //     } else {
+    //         alert('Please fill in all fields.');
+    //     }
+    // });
+
+    // Certificate download
+    // document.getElementById('download-cert').addEventListener('click', function() {
+    //         const a = document.createElement('a');
+    //         a.href = './Ilham Arip cv.pdf'; // path ke file PDF
+    //         a.download = 'Ilham_Arip_CV.pdf';
+    //         document.body.appendChild(a);
+    //         a.click();
+    //         document.body.removeChild(a);
+    //     });
+
+    // Add scroll effect to navigation
+    window.addEventListener("scroll", () => {
+      const nav = document.querySelector("nav");
+      if (window.scrollY > 100) {
+        nav.classList.add("shadow-lg");
+      } else {
+        nav.classList.remove("shadow-lg");
+      }
+    });
+  </script>
+  
+</body>
+
 </html>
